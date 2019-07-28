@@ -11,4 +11,4 @@ Solution: pretrained Xception model U-net
 Success:
 
 
-![alt text](https://raw.githubusercontent.com/Anntey/pneumothorax_segmentation/master/model_graph.png)
+![alt text](https://raw.githubusercontent.com/Anntey/pneumothorax_segmentation/blob/master/model_graph.png)
