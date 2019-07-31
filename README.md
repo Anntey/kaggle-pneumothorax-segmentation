@@ -8,7 +8,7 @@ Evaluation: mean Dice coefficient
 
 Solution: U-net: Xception encoder and ResNet decoder
 
-Success:
+Success: 0.74 
 
 
 ![alt text](model_graph.png)
