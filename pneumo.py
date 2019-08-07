@@ -29,8 +29,6 @@ from keras.layers import (Input, Conv2D, Conv2DTranspose, concatenate, Dropout,
 from albumentations import (Compose, HorizontalFlip, RandomBrightness, RandomContrast, RandomGamma, OneOf,
                             GridDistortion, ElasticTransform, OpticalDistortion, RandomSizedCrop)
 
-
-
 ###############
 # Random seed #
 ###############
