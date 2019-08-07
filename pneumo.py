@@ -103,22 +103,21 @@ for path in val_mask_paths:
     
 test_img_paths_all = glob.glob("./input/test/*")
 
-#x_test = []
-#for path in test_img_paths_all:
-#    img = cv2.imread(path)
-#    img = cv2.resize(img, (img_size, img_size))
-#    clahe = cv2.createCLAHE(clipLimit = 4.0, tileGridSize = (8,8))
-#    img = clahe.apply(img)
-#    x_test.append(img)
-#for i, img in x_test:
-#    x_test[i] = np.repeat(img[..., None], repeats = 3, axis = 2)
-#x_test = np.array(x_test) / 255
+x_test = []
 
-# read test data into memory
-x_test = list(cv2.resize(np.array(Image.open(path)), (img_size, img_size)) for path in test_img_paths_all) # open and resize images
-x_test = np.array(x_test) # convert list to (n, h, w) array
-x_test = np.array(list(np.repeat(img[..., np.newaxis], repeats = 3, axis = 2) for img in x_test)) # reshape to (n, h, w, ch) array
-x_test = x_test / 255 # scale to 0...1
+for path in test_img_paths_all:
+    img = Image.open(path)
+    img = np.array(img)
+    img = cv2.resize(img, (img_size, img_size))
+    img = np.repeat(img[..., np.newaxis], repeats = 3, axis = 2) # reshape to (h, w, 3)
+    x_test.append(img)
+    
+x_test = np.array(x_test) / 255 # convert list to (n, h, w, 3) array and scale to 0...1
+
+#x_test = list(cv2.resize(np.array(Image.open(path)), (img_size, img_size)) for path in test_img_paths_all) # open and resize images
+#x_test = np.array(x_test) # convert list to (n, h, w) array
+#x_test = np.array(list(np.repeat(img[..., np.newaxis], repeats = 3, axis = 2) for img in x_test)) # reshape to (n, h, w, ch) array
+#x_test = x_test / 255 # scale to 0...1
 
 #################
 # Augmentations #
