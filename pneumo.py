@@ -139,7 +139,6 @@ augs_train = Compose([
     RandomSizedCrop(min_max_height = (190, 256), height = img_size, width = img_size, p = 0.25),
 ], p = 1)
 
-    
 ######################
 # Generator function #
 ######################
