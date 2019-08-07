@@ -6,7 +6,7 @@ Task: predict the existence of pneumothorax in images and indicate the location 
 
 Evaluation: mean Dice coefficient
 
-Solution: Xception encoder and ResNet decoder with hypercolumns
+Solution: EfficientNet encoder and ResNet decoder with hypercolumns
 
 Success: 0.837
 
