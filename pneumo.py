@@ -475,9 +475,9 @@ preds = (0.5 * preds_orig) + (0.5 * preds_flip) # average over the prediction fo
 
 del x_test, preds_orig, preds_flip # clear some memory
 
-#######################
-# Test set prediction #
-#######################
+##############
+# Submission #
+##############
 
 sys.path.insert(0, "./input/")
 
