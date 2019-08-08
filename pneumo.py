@@ -449,17 +449,16 @@ pred_gen = DataGenerator(
 
 preds_val = model.predict_generator(pred_gen) # get predicted masks
 
-img_pred, mask_pred = pred_gen.__getitem__(0) # get (image, actual mask) pairs
+img_val, mask_val = pred_gen.__getitem__(0) # get (image, actual mask) pairs
 
 fig, axs = plt.subplots(nrows = 4, ncols = 2, figsize = (10, 20))
-for i, (img, mask) in enumerate(zip(img_eg, mask_eg)):
+for i, (img, mask) in enumerate(zip(img_val, mask_val)):
     mask_pred = np.round(preds_val[i] > 0.5, decimals = 0) # round to 1 if prediction with > 0.5 confidence
     mask_pred = np.array(mask_pred.T, dtype = np.float64) # transpose and convert to supported data type
     ax = axs[int(i / 2), i % 2]
     ax.imshow(img.squeeze(), cmap = "bone")
     ax.imshow(mask.squeeze(), alpha = 0.15, cmap = "Reds") 
     ax.imshow(mask_pred.squeeze(), alpha = 0.3, cmap = "Greens")
-
 
 ##########################
 # Test Time Augmentation #
