@@ -196,7 +196,7 @@ class DataGenerator(keras.utils.Sequence):
                 
             X[i, ] = cv2.resize(img, (self.img_size, self.img_size)) # resize image and store in (batch_size, h, w, ch) array
             y[i, ] = cv2.resize(mask, (self.img_size, self.img_size))[..., np.newaxis] # resize, reshape and store mask in (batch_size, h, w, 1) array
-            y[y > 0] = 255 # store class
+            y[y > 0] = 255 # mask pixel values for areas with pneumothorax are in 64...255 range
 
         return np.uint8(X), np.uint8(y) # augmentations library requires uint8
 
