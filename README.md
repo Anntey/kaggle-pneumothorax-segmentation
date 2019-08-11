@@ -2,7 +2,7 @@
 
 Data: 10 675 chest X-ray images
 
-Task: predict the existence of pneumothorax in images and indicate the location of the condition
+Task: predict the existence of pneumothorax in an image and indicate the location of the condition
 
 Evaluation: mean Dice coefficient
 
