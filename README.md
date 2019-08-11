@@ -8,6 +8,6 @@ Evaluation: mean Dice coefficient
 
 Solution: EfficientNet encoder and ResNet decoder with hypercolumns
 
-Success: 0.837 mean Dice coefficient
+Success: 0.841 mean Dice coefficient
 
 ![](preditions.png)
