@@ -114,11 +114,6 @@ for path in test_img_paths_all:
     
 x_test = np.array(x_test) / 255 # convert list to (n, h, w, 3) array and scale to 0...1
 
-#x_test = list(cv2.resize(np.array(Image.open(path)), (img_size, img_size)) for path in test_img_paths_all) # open and resize images
-#x_test = np.array(x_test) # convert list to (n, h, w) array
-#x_test = np.array(list(np.repeat(img[..., np.newaxis], repeats = 3, axis = 2) for img in x_test)) # reshape to (n, h, w, ch) array
-#x_test = x_test / 255 # scale to 0...1
-
 #################
 # Augmentations #
 #################
@@ -131,7 +126,7 @@ augs_train = Compose([
         RandomBrightness(),
         ], p = 0.3), # trigger this block with 0.3 probability
     OneOf([
-        ElasticTransform(alpha = 150, sigma = 10, alpha_affine = 5),
+        ElasticTransform(alpha = 120, sigma = 120 * 0.05, alpha_affine = 120 * 0.03),
 #       GridDistortion(),
         OpticalDistortion(distort_limit = 0.5, shift_limit = 0.10),
         ], p = 0.3),
@@ -245,7 +240,7 @@ eg_gen_aug = DataGenerator(
 img_eg, mask_eg = eg_gen.__getitem__(0) # get batch of (img, mask) pairs from generator
 
 fig, axs = plt.subplots(nrows = 4, ncols = 2, figsize = (10, 20))
-for i, (img, mask) in enumerate(zip(img_eg, mask_eg)): # visualize 8 images without augmentations
+for i, (img, mask) in enumerate(zip(img_eg, mask_eg)): # without augmentations
     ax = axs[int(i / 2), i % 2]
     ax.imshow(img.squeeze(), cmap = "bone")
     ax.imshow(mask.squeeze(), alpha = 0.15, cmap = "Reds")   
@@ -400,7 +395,7 @@ model = Model(inp, output)
 
 model.compile(
     loss = bce_dice_loss,
-    optimizer = optimizers.SGD(lr = 0.01, decay = 5e-6, momentum = 0.9, nesterov = True),
+    optimizer = optimizers.SGD(lr = 0.01, decay = 5e-4, momentum = 0.9, nesterov = True),
     metrics = [iou_metric]
 )
        
