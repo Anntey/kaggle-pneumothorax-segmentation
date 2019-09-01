@@ -1,4 +1,4 @@
-# Kaggle: SIIM-ACR Pneumothorax Segmentation
+# Kaggle: SIIM-ACR Pneumothorax Segmentation ([link](https://www.kaggle.com/c/siim-acr-pneumothorax-segmentation))
 
 Data: 10 675 chest X-ray images
 
