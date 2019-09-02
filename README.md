@@ -10,4 +10,4 @@ Solution: encoder-decoder (EfficientNet-ResNet) network with nested, dense skip 
 
 Success: 0.841 mean Dice coefficient
 
-![](preditions.png)
+![](predictions.png)
