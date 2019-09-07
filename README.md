@@ -6,7 +6,7 @@ Task: predict the existence of pneumothorax in an image and indicate the locatio
 
 Evaluation: mean Dice coefficient
 
-Solution: encoder-decoder (EfficientNet-ResNet) network with nested, dense skip pathways
+Solution: EfficientNet-ResNet U-Net++ (encoder-decoder network with nested, dense skip pathways)
 
 Success: 0.841 mean Dice coefficient
 
