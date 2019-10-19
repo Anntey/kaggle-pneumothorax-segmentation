@@ -96,7 +96,6 @@ for path in val_mask_paths:
     filename = path.split("/")[-1]
     shutil.move(path, "./input/mask_val/" + filename) 
 
-
 #####################
 # Prepare test data #
 #####################
@@ -127,7 +126,6 @@ augs_train = Compose([
         ], p = 0.3), # trigger this block with 0.3 probability
     OneOf([
         ElasticTransform(alpha = 120, sigma = 120 * 0.05, alpha_affine = 120 * 0.03),
-#       GridDistortion(),
         OpticalDistortion(distort_limit = 0.5, shift_limit = 0.10),
         ], p = 0.3),
     RandomSizedCrop(min_max_height = (190, 256), height = img_size, width = img_size, p = 0.25),
