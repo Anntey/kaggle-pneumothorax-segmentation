@@ -6,7 +6,7 @@ __Task__: predict the existence of pneumothorax in an image and indicate the loc
 
 __Evaluation__: mean Dice Coefficient
 
-__Solution__: EfficientNet-ResNet U-Net++ (encoder-decoder network with nested, dense skip pathways)
+__Solution__: EfficientNet-ResNet U-Net++[<sup>[1]</sup>](https://arxiv.org/abs/1807.10165) (encoder-decoder network with nested, dense skip pathways)
 
 __Success__: 0.841 mean Dice Coefficient
 
