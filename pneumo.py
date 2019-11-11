@@ -136,7 +136,6 @@ augs_train = Compose([
 ######################
 
 class DataGenerator(keras.utils.Sequence):
-
     def __init__(self, img_path = None, mask_path = None, augmentations = None,
                  batch_size = 16, img_size = 256, n_channels = 3, shuffle = False):
         self.batch_size = batch_size
