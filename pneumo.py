@@ -340,8 +340,8 @@ convm = LeakyReLU(alpha = 0.1)(convm)
 
 deconv4 = Conv2DTranspose(start_neurons * 16, (3, 3), strides = (2, 2), padding = "same")(convm)
 deconv4_up1 = Conv2DTranspose(start_neurons * 16, (3, 3), strides = (2, 2), padding = "same")(deconv4)
-deconv4_up2 = Conv2DTranspose(start_neurons * 16, (3, 3), strides= (2, 2), padding = "same")(deconv4_up1)
-deconv4_up3 = Conv2DTranspose(start_neurons * 16, (3, 3), strides= (2, 2), padding = "same")(deconv4_up2)
+deconv4_up2 = Conv2DTranspose(start_neurons * 16, (3, 3), strides = (2, 2), padding = "same")(deconv4_up1)
+deconv4_up3 = Conv2DTranspose(start_neurons * 16, (3, 3), strides = (2, 2), padding = "same")(deconv4_up2)
 uconv4 = concatenate([deconv4, conv4])
 uconv4 = Dropout(dropout_rate)(uconv4) 
 
